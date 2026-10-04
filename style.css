@@ -1,0 +1,315 @@
+table {
+border-collapse: collapse;
+width: auto;
+max-width: 100%;
+}
+
+th,
+td {
+padding: 6px 12px;
+}
+
+th {
+white-space: nowrap;
+}
+
+/* Semester */
+
+th:nth-child(1),
+td:nth-child(1) {
+white-space: nowrap;
+}
+
+/* Discipline */
+
+th:nth-child(2),
+td:nth-child(2) {
+min-width: 200px;
+max-width: 500px;
+}
+
+/* Hours */
+
+th:nth-child(3),
+td:nth-child(3) {
+white-space: nowrap;
+}
+
+/* Grade */
+
+th:nth-child(4),
+td:nth-child(4) {
+white-space: nowrap;
+}
+
+body {
+font-family: Arial, sans-serif;
+background-color: #dfdfdf;
+margin: 0;
+padding: 0 1rem 3rem;
+}
+
+.page-title {
+text-align: center;
+}
+
+#upload-form {
+display: flex;
+justify-content: center;
+}
+
+#drop-zone {
+width: 400px;
+height: 200px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+border: 2px dashed #999;
+border-radius: 12px;
+
+cursor: pointer;
+
+background-color: #f0f0f0;
+
+transition:
+    border-color 0.2s,
+    background-color 0.2s;
+
+
+}
+
+#drop-zone:hover {
+border-color: #585858;
+background-color: #f4f4f4;
+}
+
+#drop-zone.dragover {
+border-color: #007bff;
+background-color: #eaf3ff;
+}
+
+#drop-zone.uploading {
+cursor: wait;
+border-color: #28a745;
+background-color: #f0fff4;
+}
+
+.upload-icon {
+font-size: 42px;
+margin-bottom: 12px;
+}
+
+.upload-title {
+font-size: 18px;
+font-weight: bold;
+}
+
+.upload-subtitle {
+margin-top: 8px;
+color: #666;
+font-size: 14px;
+}
+
+.upload-filename {
+margin-top: 10px;
+color: #333;
+font-size: 14px;
+font-weight: bold;
+}
+
+#recommendation-container {
+width: 380px;
+height: 70px;
+
+display: flex;
+align-items: center;
+
+margin: 0 auto;
+
+
+}
+
+#recommendation {
+color: #ff0000;
+text-align: justify;
+text-justify: auto;
+}
+
+#messages {
+max-width: 800px;
+margin: 1rem auto;
+}
+
+.message {
+padding: 10px;
+border-radius: 6px;
+background-color: #ffe0e0;
+color: #900;
+}
+
+#results {
+margin-top: 1rem;
+}
+
+.option-group-0 {
+background-color: #cbcbcb;
+}
+
+.option-group-1 {
+background-color: #e8e8e8;
+}
+
+.semester-group-0 {
+background-color: #cbcbcb;
+}
+
+.semester-group-1 {
+background-color: #e8e8e8;
+}
+
+.future-semester {
+margin-top: 30px;
+margin-bottom: 40px;
+}
+
+.semester-header {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.semester-header h1,
+.semester-header h2 {
+margin: 0;
+}
+
+.semester-header button {
+padding: 8px 14px;
+border: none;
+border-radius: 6px;
+background-color: #007bff;
+color: white;
+font-size: 14px;
+cursor: pointer;
+}
+
+.semester-header button:hover {
+background-color: #0056b3;
+}
+
+.added-discipline {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: 8px;
+}
+
+.added-discipline input.name,
+.added-discipline select.hours,
+.added-discipline select.grade {
+    height: 32px;
+    box-sizing: border-box;
+}
+
+.added-discipline input.name {
+    width: 250px;
+    padding: 6px 8px;
+}
+
+.added-discipline select.hours {
+    width: 124px;
+}
+
+.added-discipline select.grade {
+    width: 70px;
+}
+
+.semester-label {
+    display: none;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: 8px;
+}
+
+.semester-label.visible {
+    display: flex;
+}
+
+.semester-label h3 {
+    margin: 0;
+}
+
+.semester-label h3:nth-child(1) {
+    width: 250px;
+}
+
+.semester-label h3:nth-child(2) {
+    width: 124px;
+}
+
+.semester-label h3:nth-child(3) {
+    width: 70px;
+}
+
+.loading {
+opacity: 0.7;
+pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+#drop-zone {
+    width: 90%;
+    max-width: 400px;
+}
+
+#recommendation-container {
+    width: 90%;
+    height: auto;
+    min-height: 90px;
+}
+
+table {
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 5px 7px;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    min-width: 150px;
+}
+
+#pdf-container {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#download-pdf {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#download-pdf:hover {
+    background-color: #218838;
+}
+
+#download-pdf:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+
+}

@@ -1,0 +1,91 @@
+<!doctype html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de IRA</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head> <body>
+<h1 class="page-title">Calculadora de IRA (UnB)</h1>
+
+<form id="upload-form">
+
+    <input
+        type="file"
+        id="file-input"
+        accept=".pdf,application/pdf"
+        hidden
+    >
+
+    <label for="file-input" id="drop-zone">
+
+        <div class="upload-title" id="upload-title">
+            Arraste seu histórico escolar aqui
+        </div>
+
+        <div class="upload-subtitle" id="upload-subtitle">
+            ou clique para selecioná-lo
+        </div>
+
+        <div class="upload-filename" id="upload-filename" style="text-align: center;"></div>
+
+    </label>
+
+</form>
+
+<div id="messages"></div>
+
+<main id="results" hidden>
+
+    <hr>
+
+    <h2>Resultados</h2>
+
+    <p>
+        <strong>IRA:</strong>
+        <span id="ira">0.0000</span>
+    </p>
+
+    <p>
+        <strong>Integralização:</strong>
+        <span id="integration"></span>
+    </p>
+
+    <h2>Disciplinas</h2>
+
+    <table border="1">
+
+        <thead>
+
+            <tr>
+                <th>Semestre</th>
+                <th>Disciplina</th>
+                <th>Carga Horária</th>
+                <th>Menção</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="disciplines"></tbody>
+
+    </table>
+
+    <section id="future-section" hidden>
+
+    <hr>
+
+    <h1>Semestres</h1>
+
+    <div id="future-semesters"></div>
+
+    </section>
+
+    <div id="pdf-container">
+        <button id="download-pdf" type="button" style="background-color: #007bff; color: white; border-color: transparent; border-radius: 15px;">
+            Baixar PDF
+        </button>
+    </div>
+
+</main>
+
+<script type="module" src="app.js"></script>
+
+</body> </html>
