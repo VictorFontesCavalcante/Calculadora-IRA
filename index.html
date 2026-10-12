@@ -3,6 +3,9 @@
 
 <link rel="stylesheet" href="style.css">
 
+<script src="./lib/jspdf/jspdf.umd.min.js"></script>
+<script src="./lib/jspdf-autotable/jspdf.plugin.autotable.min.js"></script>
+
 </head> <body>
 <h1 class="page-title">Calculadora de IRA (UnB)</h1>
 
@@ -70,7 +73,7 @@
 
     <section id="future-section" hidden>
 
-    <hr>
+    <hr style="margin-top: 30px;">
 
     <h1>Semestres</h1>
 
@@ -78,8 +81,10 @@
 
     </section>
 
+    <hr style="margin-bottom: 40px;">
+
     <div id="pdf-container">
-        <button id="download-pdf" type="button" style="background-color: #007bff; color: white; border-color: transparent; border-radius: 15px;">
+        <button id="download-pdf" type="button" style="width: 100px; height: 25px; background-color: #007bff; color: white; border-color: transparent; border-radius: 5px; cursor: pointer;">
             Baixar PDF
         </button>
     </div>

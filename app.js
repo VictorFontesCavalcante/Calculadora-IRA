@@ -1,9 +1,8 @@
-import { jsPDF } from "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm";
-import { autoTable } from "https://cdn.jsdelivr.net/npm/jspdf-autotable@5.0.2/+esm";
+const { jsPDF } = window.jspdf;
 
-import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+import * as pdfjsLib from "./lib/pdfjs/pdf.min.mjs";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+pdfjsLib.GlobalWorkerOptions.workerSrc = "./lib/pdfjs/pdf.worker.min.mjs";
 
 const GRADES = {
     SS: { value: 5, approved: true },
@@ -229,8 +228,8 @@ async function processFile(file) {
         if (!(grade in GRADES) && situation !== "MATR") {
             continue;
         }
-
-        const discipline = courses[code] ?? "";
+        
+        const discipline = code + " - " + courses[code]?.nome ?? "(?)";
         const label = COMP_LABELS[type] ?? "Obrigatória";
 
         disciplines.push({
@@ -683,7 +682,7 @@ function generatePDF() {
             discipline.semester,
             discipline.discipline,
             `${discipline.hours} h`,
-            discipline.grade
+            GRADES[discipline.grade] ? discipline.grade : ""
         ]);
     }
 
@@ -694,14 +693,14 @@ function generatePDF() {
 
             const name = discipline.name?.trim()
                 ? discipline.name.trim()
-                : "Disciplina sem nome";
+                : "(?)";
 
             const hours = discipline.hours === "-"
-                ? "--"
+                ? "0 h"
                 : `${discipline.hours} h`;
 
             const grade = discipline.grade === "-"
-                ? "--"
+                ? ""
                 : discipline.grade;
 
             rows.push([
