@@ -76,7 +76,7 @@ function getFutureSemesters(lastSem, limitSem) {
     let fst = initFirst;
     let snd = initSecond;
 
-    while (fst !== targetFirst || snd !== targetSecond) {
+    while (fst < targetFirst && snd < targetSecond) {
 
         snd++;
 
@@ -156,7 +156,7 @@ function calculateIraHours(disciplines, addedDisciplines, initYear) {
 async function getPDFText(file) {
 
     const buffer = await file.arrayBuffer();
-    const doc = await pdfjsLib.getDocument({data: buffer}).promise;
+    const doc = await pdfjsLib.getDocument({ data: buffer, isEvalSupported: false }).promise;
 
     let text = "";
 
@@ -169,6 +169,8 @@ async function getPDFText(file) {
 
         text += " ";
     }
+
+    await doc.destroy();
 
     return text;
 }
@@ -229,7 +231,7 @@ async function processFile(file) {
             continue;
         }
         
-        const discipline = code + " - " + courses[code]?.nome ?? "(?)";
+        const discipline = code + " - " + (courses[code]?.nome ?? "(?)");
         const label = COMP_LABELS[type] ?? "Obrigatória";
 
         disciplines.push({
