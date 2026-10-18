@@ -76,7 +76,7 @@ function getFutureSemesters(lastSem, limitSem) {
     let fst = initFirst;
     let snd = initSecond;
 
-    while (fst < targetFirst && snd < targetSecond) {
+    while (fst < targetFirst || snd < targetSecond) {
 
         snd++;
 
